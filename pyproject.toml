@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geography-explorer"
+version = "0.1.0"
+description = "CLI geography app"
+authors = [{ name = "Dylan" }]
+dependencies = [
+    "requests"
+]
