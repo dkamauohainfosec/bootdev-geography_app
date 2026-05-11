@@ -11,7 +11,8 @@ def main():
   ### Normalize countries
   normalized_countries = [normalize_country(country) for country in countries]
 
-  print(normalized_countries[7])
+  country = [ c for c in normalized_countries if c.get("name",{}).get("common") == "Brunei"]
+  print(country[0].get('capital'))
   
 
 
