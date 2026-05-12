@@ -16,3 +16,13 @@ def get_countries():
   response.raise_for_status()
 
   return response.json()
+
+def get_country_by_name(name):
+  ## Sets the URL appropriately to run the query to get those fields for each country ##
+  url = f"{base_url}/name/{name}"
+
+  ## Sends the request ##
+  response = requests.get(url, timeout=10)
+  response.raise_for_status()
+
+  return response.json()

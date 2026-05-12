@@ -1,8 +1,8 @@
 def normalize_country(country):
   return {
-    "code": country.get("cca3"),
-    "name": country.get("name"),
-    "capital": country.get("capital"),
-    "region": country.get("region"),
-    "population": country.get("population")
+    "Name": country[0]["name"]["common"],
+    "Continent(s)": country[0]["continents"],
+    "Subregion": country[0]["subregion"],
+    "Capital": country[0]["capital"],
+    "Population": country[0]["population"]
   }
