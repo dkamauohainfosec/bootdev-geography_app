@@ -21,4 +21,22 @@ def display_country(country):
 
   languages = country.get("Official Languages", {})
   print(f"\nOfficial Languages: {', '.join(languages.values())}")
+
+def display_region_countries(countries):
+    print("\nCOUNTRIES IN REGION")
+
+    if not countries:
+       print("No countries found.")
+       return
+
+    for country in countries:
+      name = country.get("name", {}).get("common", "Unknown")
+      capital = ", ".join(country.get("capital", ["N/A"]))
+      population = country.get("population", 0)
+      subregion = country.get("subregion", "N/A")
+
+      print(f"\n{name}")
+      print(f"  Capital: {capital}")
+      print(f"  Population: {population:,}")
+      print(f"  Subregion: {subregion}")
   

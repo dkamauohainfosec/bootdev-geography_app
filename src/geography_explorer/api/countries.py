@@ -28,3 +28,11 @@ def get_country_by_name(name):
   response.raise_for_status()
 
   return response.json()
+
+def get_countries_by_region(region):
+  fields = "name,capital,population,subregion,cca3"
+  url = f"{base_url}/region/{region}?fields={fields}"
+
+  response = requests.get(url, timeout=10)
+  response.raise_for_status()
+  return response.json()
