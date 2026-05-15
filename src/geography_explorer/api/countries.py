@@ -19,7 +19,9 @@ def get_countries():
 
 def get_country_by_name(name):
   ## Sets the URL appropriately to run the query to get those fields for each country ##
-  url = f"{base_url}/name/{name}"
+  fields = "name,continents,subregion,capital,population,languages"
+
+  url = f"{base_url}/name/{name}?fields={fields}"
 
   ## Sends the request ##
   response = requests.get(url, timeout=10)

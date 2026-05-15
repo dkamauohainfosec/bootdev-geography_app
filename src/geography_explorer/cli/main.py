@@ -1,25 +1,29 @@
 ## IMPORTS ##
 import json
+import requests
 
 ## REFERENCES ##
 from geography_explorer.api.countries import get_countries, get_country_by_name
-from geography_explorer.models.country import normalize_country
+from geography_explorer.models.country import normalize_country, display_country
 
 def main():
   print("GEOGRAPHY EXPLORER")
 
-  ### API Call to get list of countries
-  countries = get_countries()
+  while True:
+    country_name = input("Enter a country name: ").strip()
 
-  ### Normalize countries
- # normalized_countries = [normalize_country(country) for country in countries]
+    try:
+      country = get_country_by_name(country_name)
+      display_country(normalize_country(country))
+      break
+    except requests.HTTPError:
+      print(f"No country found for: {country_name}")
+      print("Please try again.\n")
+    except requests.RequestException as e:
+      print(f"API request failed: {e}")
+      print("Please try again.\n")
 
- # country = [ c for c in normalized_countries if c.get("name",{}).get("common") == "Brunei"]
- # print(country[0].get('capital'))
-
-  country_name = input("Enter a country name: ").strip()
-  country = get_country_by_name(country_name)
-  print(json.dumps(normalize_country(country),indent = 2))
+  
 
   
 

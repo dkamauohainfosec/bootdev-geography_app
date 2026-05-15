@@ -7,3 +7,18 @@ def normalize_country(country):
     "Population": country[0]["population"],
     "Official Languages": country[0]["languages"]
   }
+
+def display_country(country):
+  print("*********************************")
+  print("COUNTRY INFO")
+  print("*********************************")
+  print(f"\nName: {country.get('Name')}")
+  print(f"Capital(s): {', '.join(country.get('Capital', []))}")
+  print(f"\nContinent(s): {', '.join(country.get('Continent(s)', []))}")
+  print(f"Subregion: {country.get('Subregion')}")
+
+  print(f"\nPopulation: {country.get('Population'):,}")
+
+  languages = country.get("Official Languages", {})
+  print(f"\nOfficial Languages: {', '.join(languages.values())}")
+  
