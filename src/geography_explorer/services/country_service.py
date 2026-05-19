@@ -33,7 +33,7 @@ def show_countries_by_region(region):
     display_region_countries(sorted_countries)
   except requests.HTTPError:
     print(f"No countries found for region: {region}")
-  except requests.RequestException:
+  except requests.RequestException as e:
     print(f"Api request failed: {e}")
 
 def show_countries_by_subregion(region, subregion):

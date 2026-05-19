@@ -4,6 +4,7 @@ from geography_explorer.services.country_service import (
   show_countries_by_subregion
 )
 from geography_explorer.services.quiz_service import play_capitals_quiz
+from geography_explorer.api.countries import get_countries
 
 def display_menu():
   print("\nGEOGRAPHY EXPLORER")
@@ -29,6 +30,8 @@ def get_region_choice():
   return input("Choose a region: ").strip()
 
 def run_menu():
+  countries = get_countries()
+
   while True:
     display_menu()
     choice = get_menu_choice()
@@ -41,14 +44,14 @@ def run_menu():
         run_region_menu()
 
       case "3":
-        play_capitals_quiz()
+        play_capitals_quiz(countries)
       
       case "4":
         print("Goodbye.")
         break
 
       case _:
-        print("Invalid option. Please choose 1, 2, or 3")
+        print("Invalid option. Please choose 1, 2, 3, or 4.")
 
 def run_region_menu():
   while True:
