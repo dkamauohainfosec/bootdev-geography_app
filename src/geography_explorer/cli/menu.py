@@ -3,6 +3,7 @@ from geography_explorer.services.country_service import (
   show_countries_by_region,
   show_countries_by_subregion
 )
+from geography_explorer.services.quiz_service import play_capitals_quiz
 
 def display_menu():
   print("\nGEOGRAPHY EXPLORER")
@@ -40,7 +41,7 @@ def run_menu():
         run_region_menu()
 
       case "3":
-        print("Under construction")
+        play_capitals_quiz()
       
       case "4":
         print("Goodbye.")
